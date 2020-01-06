@@ -1,0 +1,21 @@
+ProductName:
+    css: 'h1.a-size-large span.a-size-large'
+    type: Text
+MainPrice:
+    css: 'div.a-section div.feature span.a-size-medium.a-color-price'
+    type: Text
+wasBefore:
+    css: span.priceBlockStrikePriceString
+    type: Text
+OurOrDealPrice:
+    css: 'td.a-span12 span.a-size-medium.a-color-price'
+    type: Text
+YouSave:
+    css: td.a-span12.a-color-price
+    type: Text
+Voucher:
+    css: 'span.a-label span.a-color-base'
+    type: Text
+LightningDeal:
+    css: span.a-size-base.gb-accordion-active
+    type: Text

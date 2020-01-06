@@ -1,0 +1,16 @@
+{
+    "itemslist": [
+        {
+            "url": "https://www.amazon.de/dp/B07747FR44/ref=lp_5157844031_1_1?s=amazon-devices&ie=UTF8&qid=1578340315&sr=1-1",
+            "DesiredPrice": 120.0
+        },
+        {
+            "url": "https://www.amazon.de/dp/B07P7Z6R6L/",
+            "DesiredPrice": 50.0
+        },
+        {
+            "url": "https://www.amazon.de/dp/B07HQQPY8C/ref=sr_1_4?crid=ZNBXF241FZ4O&keywords=mini-projektor&qid=1578342182&sprefix=mini+pro%2Caps%2C196&sr=8-4",
+            "DesiredPrice": 50.0
+        }
+    ]
+}
