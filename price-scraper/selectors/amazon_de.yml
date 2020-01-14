@@ -4,15 +4,19 @@ ProductName:
 MainPrice:
     css: 'div.a-section div.feature span.a-size-medium.a-color-price'
     type: Text
+    format: DeleteEuro
 wasBefore:
     css: span.priceBlockStrikePriceString
     type: Text
+    format: DeleteEuro
 OurOrDealPrice:
     css: 'td.a-span12 span.a-size-medium.a-color-price'
     type: Text
+    format: DeleteEuro
 YouSave:
     css: td.a-span12.a-color-price
     type: Text
+    format: DeleteEuro
 Voucher:
     css: 'span.a-label span.a-color-base'
     type: Text

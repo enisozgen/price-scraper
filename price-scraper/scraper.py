@@ -1,23 +1,22 @@
-from selectorlib import Extractor, Formatter
+from selectorlib import Extractor
+from selectorlib.formatter import Formatter
 import requests
 import json
 
-# Can be better formatter than .replace
-def DeleteEuroSymbol(item):
-    "Replace Euro symbol with empty string"
-    for element in data:
-        # print(data[element])
-        if "\u00a0\u20ac" in data[element]:
-            data[element] = data[element].replace("\u00a0\u20ac", "")
-    return item
+class DeleteEuro(Formatter):
+    def format(self, text):
+        return ConvertToFloat(text.replace('\u00a0\u20ac','').strip())
 
 def ConvertToFloat(item):
-    return float(item.replace(",","."))
+    "Bad version convert to float"
+    try:
+        return float(item.replace(",","."))
+    except:
+        pass
 
 def Desicion(data):
     # print(json.dumps(data, indent=True))
-
-    if ConvertToFloat(data['OurOrDealPrice']) < data["DesiredPrice"]:
+    if data['OurOrDealPrice'] < data["DesiredPrice"]:
         data["DiscountInfo"] = "Price is smaller than DesiredPrice"
         return data
     # TODO May Calculate last value via variables
@@ -47,15 +46,16 @@ for item in list_data['itemslist']:
     # TODO Make this dynamic via url for different web sites
     selector_file = 'selectors/amazon_de.yml'
 
+    formatters = Formatter.get_all()
     # Create an Extractor by reading from the YAML file
-    extractor_element = Extractor.from_yaml_file(selector_file)
+    extractor_element = Extractor.from_yaml_file(selector_file, formatters=formatters)
+    # extractor_element = Extractor.from_yaml_string(yaml_dump)
 
     # Download the page using requests
     req = requests.get(url, headers=headers)
 
     # Pass the HTML of the page and create
     data = extractor_element.extract(req.text)
-    data  = DeleteEuroSymbol(data)
 
     # Add link and desired price
     data["link"] = url
